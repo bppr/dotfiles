@@ -1,0 +1,89 @@
+autoload -U compinit
+autoload colors
+compinit
+colors
+
+#Path
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$PATH:/usr/local/mysql/bin
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+export CDPATH=~:~/projects/
+export PATH="/usr/local/share/python:${PATH}"
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+# Env Vars
+export EDITOR=vim
+export CLICOLOR=1
+
+# Options
+setopt nonomatch
+setopt EXTENDED_HISTORY # add timestamps to history
+setopt LOCAL_OPTIONS # allow functions to have local options
+setopt LOCAL_TRAPS # allow functions to have local traps
+setopt PROMPT_SUBST
+setopt COMPLETE_IN_WORD
+setopt IGNORE_EOF
+setopt AUTO_CD
+setopt HIST_IGNORE_DUPS
+setopt APPEND_HISTORY # adds history
+setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt HIST_REDUCE_BLANKS
+
+# Completion
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
+zstyle ':completion:*:default' menu 'select=0' # menu-style
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+
+# Functions
+git_prompt_info() {
+  ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
+  mods=$(vcprompt -f %m%u%a) || return
+  echo "%{$reset_color%}(%{$fg[red]%}${ref#refs/heads/}%{$fg[yellow]%}${mods}%{$reset_color%})"
+}
+
+function ss {
+  if [ -e script/rails ]; then
+    script/rails server $@
+  else
+    script/server $@
+  fi
+}
+
+function sc {
+  if [ -e script/rails ]; then
+    script/rails console $@
+  else
+    script/console $@
+  fi
+}
+
+function sg {
+  if [ -e script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
+
+function _rep {
+  find . -name $1 | xargs sed -i .bak s/$2/$3/g && find . -name "*.bak" | xargs rm -rf
+}
+
+tmuxpwd() {
+  $([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")
+}
+
+# Prompt
+export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_color%}%% $(tmuxpwd)'
+
+# Aliases
+alias bx="bundle exec"
+alias rtest='ruby -I"lib:test"'
+alias jspec="bx jasmine-headless-webkit -c"
+alias cuke="cucumber -r features"
+
+# Bindings
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward

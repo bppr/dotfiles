@@ -1,0 +1,14 @@
+if has("mac")
+  set guifont=Bitstream\ Vera\ Sans\ Mono:h13
+  set fuopt=maxhorz,maxvert
+  set fu
+  set vb "shuts up the bell sounds from macVim
+  map <Leader>fs :set invfu<CR>
+end
+
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+set guioptions-=L
+
+set columns=140

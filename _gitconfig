@@ -1,0 +1,33 @@
+[user]
+	name = __NAME__
+	email = __EMAIL__
+
+[color]
+	ui = auto
+
+[alias]
+  aa = add -A .
+  amend = commit --amend
+
+  br = branch
+	ci = commit
+	cm = commit -m
+	cma = commit -am
+	co = checkout
+
+  di = diff
+  dc = diff --cached
+  ds = diff --staged
+
+  st = status
+
+  fml = !git aa && git reset --hard
+  pop = !git stash pop
+  checkpoint = commit -m "checkpoint"
+  lg = "!source ~/.githelpers && pretty_git_log"
+
+[push]
+	default = current
+
+[merge]
+  tool = opendiff
