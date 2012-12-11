@@ -6,9 +6,9 @@ colors
 #Path
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$PATH:/usr/local/mysql/bin
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-export CDPATH=~:~/projects/
-export PATH="/usr/local/share/python:${PATH}"
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export CDPATH=~:~/projects/:~/projects/me
+export PATH="/usr/local/share/python:${PATH}:/usr/local/share/npm/bin"
+# export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 # Env Vars
 export EDITOR=vim
@@ -83,6 +83,7 @@ alias bx="bundle exec"
 alias rtest='ruby -I"lib:test"'
 alias jspec="bx jasmine-headless-webkit -c"
 alias cuke="cucumber -r features"
+alias ls-="ls -lah"
 
 # Bindings
 bindkey -M viins '^R' history-incremental-pattern-search-backward

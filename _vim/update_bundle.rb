@@ -17,7 +17,6 @@ end
 git_bundles = [
   # plugins
 
-  "git://github.com/mileszs/ack.vim.git",
   "git://github.com/vim-scripts/pathogen.vim.git",
   "git://github.com/vim-scripts/surround.vim.git",
   "git://github.com/scrooloose/nerdtree.git",

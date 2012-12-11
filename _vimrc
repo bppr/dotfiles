@@ -29,9 +29,6 @@ set noswapfile
 
 set winwidth=90
 set winminwidth=15
-set winheight=5
-set winminheight=5
-set winheight=999
 
 set list
 set listchars=tab:\ \ ,trail:·
@@ -86,8 +83,8 @@ map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 
-nmap g/ :Ack<space>
-nmap g* :Ack <C-R><C-W>
+nmap g/ :Ggrep<space>
+nmap g* :Ggrep <C-R><C-W>
 nmap gn :cnext<CR>
 nmap gp :cprev<CR>
 nmap gq :ccl<CR>
