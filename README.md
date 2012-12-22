@@ -6,9 +6,10 @@ I'm only putting these up here in case my system explodes, or in case I get anot
 * VCPrompt
 * RVM
 * Git
+* reattach-to-user-namespace ( brew install reattach-to-user-namespace )
 * VIM compiled with Ruby Support: http://stackoverflow.com/questions/3794895/installing-vim-with-ruby-support-ruby or MacVim
 
-(If you're only installing the VIM files you can ignore the first 5 pre-reqs)
+(If you're only installing the VIM files you can ignore all but the last pre-req)
 
 ## Installin'
 Simply clone the repo, CD into it. Run

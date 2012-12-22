@@ -5,14 +5,13 @@ colors
 
 #Path
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$PATH:/usr/local/mysql/bin
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-export CDPATH=~:~/projects/:~/projects/me
-export PATH="/usr/local/share/python:${PATH}:/usr/local/share/npm/bin"
-# export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PATH="${PATH}:/usr/local/share/npm/bin"
 
 # Env Vars
 export EDITOR=vim
 export CLICOLOR=1
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+export CDPATH=~:~/projects/:~/projects/me
 
 # Options
 setopt nonomatch
@@ -67,23 +66,15 @@ function sg {
   fi
 }
 
-function _rep {
-  find . -name $1 | xargs sed -i .bak s/$2/$3/g && find . -name "*.bak" | xargs rm -rf
-}
-
-tmuxpwd() {
-  $([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")
-}
-
 # Prompt
-export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_color%}%% $(tmuxpwd)'
+export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_color%}%% '
 
 # Aliases
 alias bx="bundle exec"
 alias rtest='ruby -I"lib:test"'
-alias jspec="bx jasmine-headless-webkit -c"
 alias cuke="cucumber -r features"
 alias ls-="ls -lah"
+alias gmacs='open . -a emacs'
 
 # Bindings
 bindkey -M viins '^R' history-incremental-pattern-search-backward
