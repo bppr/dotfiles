@@ -4,14 +4,14 @@ compinit
 colors
 
 #Path
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$PATH:/usr/local/mysql/bin
-export PATH="${PATH}:/usr/local/share/npm/bin"
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# export PATH="${PATH}:/usr/local/share/npm/bin"
 
 # Env Vars
 export EDITOR=vim
 export CLICOLOR=1
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
-export CDPATH=~:~/projects/:~/projects/me
+# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+export CDPATH=~:~/src/:~/src/work
 
 # Options
 setopt nonomatch
@@ -28,7 +28,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-# Completion
+#Completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
 zstyle ':completion:*:default' menu 'select=0' # menu-style
@@ -79,3 +79,5 @@ alias gmacs='open . -a emacs'
 # Bindings
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
+
+typeset -U path cdpath fpath

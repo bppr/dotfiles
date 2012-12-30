@@ -27,8 +27,11 @@ should work just fine.
 
 ### ZSH
 you can install the latest zsh with
+
 >brew install zsh
+
 then add /usr/local/bin/zsh to your /etc/shells file (probably using sudo) then run
+
 >chsh -s /usr/local/bin/zsh
 
 basically this prompt shows hostname:directory(branch+*?) (where the +*? denote the state of the working directory in git). tmux configuration with tabs and simple vim-like bindings. autocd and colors and all that. nothing too fancy
@@ -66,3 +69,7 @@ Leader Stuff
 #### Bindings In Insert Mode
 * Ctrl + L    : insert hash-rocket (=>)
 * Ctrl + K    : insert method-missile (->)
+
+
+## A few notes on VCPrompt
+> curl https://raw.github.com/djl/vcprompt/v1.0.1/bin/vcprompt > /usr/local/bin/vcprompt && sudo chmod +x /usr/local/bin/vcprompt
