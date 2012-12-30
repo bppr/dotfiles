@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/brian/projects/me/pratt-io/lib'
-let g:netrw_dirhist_2='/Users/brian/projects/me/sandbox/lengua'
-let g:netrw_dirhist_3='/Users/brian/projects/cengage/ng-ui/.git'
-let g:netrw_dirhist_4='/Users/brian/Downloads/tic-tac-toe/src'
