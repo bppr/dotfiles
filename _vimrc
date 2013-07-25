@@ -62,9 +62,9 @@ let NERDTreeAutoCenter          = 1
 let NERDTreeAutoCenterThreshold = 10
 let NERDTreeIgnore              = ['\.git', '\.pyc', '\.jhw-cache']
 let g:no_html_toolbar           = 'yes'
-let g:Powerline_symbols         = 'fancy'
 let g:CommandTMaxHeight         = 10
 let g:CommandTMaxDepth          = 10
+let g:airline_powerline_fonts   = 1
 let coffee_no_trailing_space_error = 1
 
 autocmd QuickFixCmdPost *grep* cwindow
@@ -102,4 +102,3 @@ endfunction
 
 command! -nargs=0 Trim :call Trim()
 nnoremap <silent> <Leader>cw :Trim<CR>
-

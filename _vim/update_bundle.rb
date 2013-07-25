@@ -20,11 +20,12 @@ git_bundles = [
   "git://github.com/vim-scripts/pathogen.vim.git",
   "git://github.com/vim-scripts/surround.vim.git",
   "git://github.com/scrooloose/nerdtree.git",
-  "git://github.com/Lokaltog/vim-powerline.git",
   "git://github.com/tpope/vim-fugitive.git",
   "git://github.com/altercation/vim-colors-solarized.git",
   "git://github.com/wincent/Command-T.git",
   "git://github.com/vim-scripts/tComment.git",
+  "git://github.com/vim-scripts/tComment.git",
+  "git://github.com/bling/vim-airline.git",
 
   # syntax / language
   "git://github.com/kchmck/vim-coffee-script.git",
@@ -49,7 +50,8 @@ git_bundles.each do |url|
   puts "* Unpacking #{url} into #{dirname}"
 
   dir = File.join(bundle_dir, dirname)
-  `cd #{dir} && git clone #{url} #{dir} > /dev/null`
+  # `cd #{dir} && git clone #{url} #{dir} > /dev/null`
+  Kernel.system("cd #{dir} && git clone #{url} #{dir}")
 end
 
 

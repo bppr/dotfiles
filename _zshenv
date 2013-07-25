@@ -5,16 +5,15 @@ colors
 
 #Path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# export PATH="${PATH}:/usr/local/share/npm/bin"
+export PATH="${PATH}:/usr/local/share/npm/bin"
 
 # Env Vars
 export EDITOR=vim
 export CLICOLOR=1
-# export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
 export CDPATH=~:~/src/:~/src/work
 
 # Options
-setopt nonomatch
+setopt nonomatch # allow us to do bracket-based commands without ugliness
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
@@ -72,12 +71,15 @@ export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_col
 # Aliases
 alias bx="bundle exec"
 alias rtest='ruby -I"lib:test"'
-alias cuke="cucumber -r features"
 alias ls-="ls -lah"
 alias gmacs='open . -a emacs'
+alias gemreset='rvm gemset --force empty && gem install bundler && bundle'
+alias iphonesim='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'
 
 # Bindings
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
+bindkey -M viins '^P' up-history
+bindkey -M viins '^N' down-history
 
 typeset -U path cdpath fpath
