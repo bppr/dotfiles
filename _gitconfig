@@ -3,17 +3,18 @@
 	email = __EMAIL__
 
 [color]
-	ui = auto
+  ui = auto
 
 [alias]
   aa = add -A .
   amend = commit --amend
 
   br = branch
-	ci = commit
-	cm = commit -m
-	cma = commit -am
-	co = checkout
+  ci = commit
+  cm = commit -m
+  cma = commit -am
+  co = checkout
+  rh = reset HEAD
 
   di = diff
   dc = diff --cached
@@ -23,11 +24,12 @@
 
   fml = !git aa && git reset --hard
   pop = !git stash pop
+  subs = submodule update --init --recursive
   checkpoint = commit -m "checkpoint"
   lg = "!source ~/.githelpers && pretty_git_log"
 
 [push]
-	default = current
+  default = current
 
 [merge]
   tool = opendiff
