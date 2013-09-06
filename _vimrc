@@ -22,6 +22,7 @@ set laststatus=2
 set ignorecase
 set smartcase
 set cursorline
+set colorcolumn=80
 
 set nobackup
 set nowritebackup
@@ -32,13 +33,6 @@ set winminwidth=15
 
 set list
 set listchars=tab:\ \ ,trail:·
-
-" colorization
-if $BPCOLOR == 'lite'
-  set background=light
-else
-  set background=dark
-endif
 
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -100,5 +94,28 @@ function! Trim()
   exe "normal zz"
 endfunction
 
+function! MakeLight()
+  exe ":set background=light"
+  exe "hi Normal ctermbg=NONE"
+  exe "hi CursorLine ctermbg=NONE"
+  exe "hi rubyDefine ctermbg=NONE"
+endfunction
+
+" colorization
+if $TERMBG == 'light'
+  call MakeLight()
+else
+  set background=dark
+endif
+
 command! -nargs=0 Trim :call Trim()
+command! -nargs=0 MakeLight :call MakeLight()
 nnoremap <silent> <Leader>cw :Trim<CR>
+
+" solarized + coffee == annoying parens, fix that
+autocmd BufReadPost *.coffee hi coffeeParen ctermfg=none
+
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
