@@ -5,10 +5,12 @@
 ;; Miscellany
 (setq
   make-backup-files nil
-  auto-save-default nil)              ; backup files: no
-
+  auto-save-default nil)            ; backup files: not once
 (setq ring-bell-function 'ignore)   ; stop beeping at me!
 (setq inhibit-startup-message t)    ; don't show welcome screen
+
+(require 'ido)
+(ido-mode t)
 
 (setq load-path (cons "~/.emacs.d" load-path))
 
