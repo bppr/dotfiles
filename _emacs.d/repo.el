@@ -12,6 +12,7 @@
   (loop for p in packages-list
         when (not (package-installed-p p)) do (return t)
         finally (return nil)))
+
 (when (has-package-not-installed)
   (message "%s" "Get latest versions of all packages...")
   (package-refresh-contents)

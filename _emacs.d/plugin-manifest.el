@@ -1,7 +1,9 @@
 (defvar packages-list
-  '(rainbow-mode
+  '(solarized-theme
+    rainbow-delimiters
+    paredit
     clojure-mode
-    solarized-theme
     coffee-mode
     ruby-mode
-    find-file-in-repository))
+    find-file-in-repository
+    ))
