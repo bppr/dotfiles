@@ -12,9 +12,10 @@
 (global-linum-mode t)               ; show line numbers
 
 (setq-default
+  indent-tabs-mode nil              ; soft tabs
   truncate-lines t)                 ; don't wrap words
 
-; use ido for file findin
+; use ido for file finding
 (require 'ido)
 (ido-mode t)
 
@@ -24,13 +25,7 @@
 
 (load "repo")
 (load "theme")
-
-(defun get-lispy ()
-  (enable-paredit-mode)
-  (rainbow-delimiters-mode 1))
-
-(add-hook 'lisp-mode-hook 'get-lispy)
-(add-hook 'emacs-lisp-mode-hook 'get-lispy)
+(load "lisp-hooks")
 
 ;; Keybindings
 (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
