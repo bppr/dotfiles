@@ -70,8 +70,8 @@ export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_col
 
 # Aliases
 alias bx="bundle exec"
-alias rtest='ruby -I"lib:test"'
 alias ls="ls -lh"
+alias rage='bundle exec rake'
 alias gmacs='open . -a emacs'
 alias gemreset='rvm gemset --force empty && gem install bundler && bundle'
 alias iphonesim='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'

@@ -23,6 +23,7 @@ set ignorecase
 set smartcase
 set cursorline
 set colorcolumn=80
+set wildignore+=target
 
 set nobackup
 set nowritebackup

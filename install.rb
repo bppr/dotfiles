@@ -85,7 +85,7 @@ class Options
     email = CLI.get
 
     text = File.read(filename).gsub(/__NAME__/, name).gsub(/__EMAIL__/, email)
-    File.open(filename, "w") {|file| file.CLI.out text }
+    File.open(filename, "w") {|file| file.puts text }
   end
 
   def self.confirm

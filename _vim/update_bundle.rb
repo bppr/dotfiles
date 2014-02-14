@@ -3,15 +3,17 @@
 
 require 'fileutils'
 
-puts "BEFORE YOU DO THIS~"
-puts "you should have run the following command!"
-puts
-puts "rvm use system"
-puts
-puts "if you have run this command and are using system ruby, type yes to continue"
+if !ARGV.include?("--force")
+  puts "BEFORE YOU DO THIS~"
+  puts "you should have run the following command!"
+  puts
+  puts "rvm use system"
+  puts
+  puts "if you have run this command and are using system ruby, type yes to continue"
 
-if gets.chomp != "yes"
-  exit 0
+  if gets.chomp != "yes"
+    exit 0
+  end
 end
 
 git_bundles = [
@@ -50,7 +52,6 @@ git_bundles.each do |url|
   puts "* Unpacking #{url} into #{dirname}"
 
   dir = File.join(bundle_dir, dirname)
-  # `cd #{dir} && git clone #{url} #{dir} > /dev/null`
   Kernel.system("cd #{dir} && git clone #{url} #{dir}")
 end
 

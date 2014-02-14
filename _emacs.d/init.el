@@ -1,6 +1,11 @@
 ;; UI stuff
 (setq ns-use-native-fullscreen nil) ; don't use lion fullscreen
-(tool-bar-mode -1)                  ; hide the toolbar
+
+(if (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))               ; hide the toolbar
+
+(if (fboundp 'menu-bar-mode)
+    (menu-bar-mode -1))             ; hide the terminal menu-bar
 
 ;; Miscellany
 (setq
@@ -29,8 +34,8 @@
 
 ;; Keybindings
 (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen)
-(global-set-key (kbd "s-{")        'previous-buffer)
-(global-set-key (kbd "s-}")        'next-buffer)
+(global-set-key (kbd "C-x [")        'previous-buffer)
+(global-set-key (kbd "C-x ]")        'next-buffer)
 (global-set-key (kbd "C-x f")      'find-file-in-repository)
 (global-set-key (kbd "C-x C-f")    'find-file-in-repository)
 (global-set-key (kbd "C-x F")      'find-file)
