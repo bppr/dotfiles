@@ -58,6 +58,7 @@ end
 
 puts "Attempting to compile Command-T Ruby Extensions"
 FileUtils.cd("bundle/Command-T")
+`git checkout 1.6.1`
 `curl https://raw.github.com/tomtom/vimball.rb/master/vimball.rb > vendor/vimball/vimball.rb && chmod 0755 vendor/vimball/vimball.rb && make`
 
 FileUtils.cd("ruby/command-t")
