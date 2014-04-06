@@ -24,9 +24,9 @@ git_bundles = [
   "git://github.com/scrooloose/nerdtree.git",
   "git://github.com/tpope/vim-fugitive.git",
   "git://github.com/altercation/vim-colors-solarized.git",
-  "git://github.com/wincent/Command-T.git",
+  "git://github.com/wincent/command-t.git",
   "git://github.com/vim-scripts/tComment.git",
-  "git://github.com/vim-scripts/tComment.git",
+  "git://github.com/godlygeek/tabular.git",
   "git://github.com/bling/vim-airline.git",
 
   # syntax / language
@@ -35,6 +35,7 @@ git_bundles = [
   "git://github.com/pangloss/vim-javascript.git",
   "git://github.com/othree/html5.vim.git",
   "git://github.com/vim-scripts/VimClojure",
+  "git://github.com/tfnico/vim-gradle.git",
   "git://github.com/jnwhiteh/vim-golang.git"
 ]
 
@@ -57,11 +58,7 @@ end
 
 
 puts "Attempting to compile Command-T Ruby Extensions"
-FileUtils.cd("bundle/Command-T")
-`git checkout 1.6.1`
-`curl https://raw.github.com/tomtom/vimball.rb/master/vimball.rb > vendor/vimball/vimball.rb && chmod 0755 vendor/vimball/vimball.rb && make`
+FileUtils.cd("bundle/command-t")
+Kernel.system("ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future rake make")
 
-FileUtils.cd("ruby/command-t")
-`ruby extconf.rb && make`
-
-puts "Okay, sweet."
+puts "Okay, sweet." if $?

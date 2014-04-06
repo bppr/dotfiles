@@ -1,6 +1,6 @@
 autoload -U compinit
 autoload colors
-compinit
+compinit -u
 colors
 
 #Path
@@ -27,12 +27,14 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
+if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
+  source '/usr/local/share/chruby/chruby.sh'
+fi
+
 #Completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
 zstyle ':completion:*:default' menu 'select=0' # menu-style
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # Functions
 git_prompt_info() {
@@ -73,8 +75,9 @@ alias bx="bundle exec"
 alias ls="ls -lh"
 alias rage='bundle exec rake'
 alias gmacs='open . -a emacs'
-alias gemreset='rvm gemset --force empty && gem install bundler && bundle'
 alias iphonesim='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'
+
+alias chgem=". chgems"
 
 # Bindings
 bindkey -M viins '^R' history-incremental-pattern-search-backward
