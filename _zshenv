@@ -13,10 +13,10 @@ export CLICOLOR=1
 export CDPATH=~:~/src/:~/src/work
 
 # Options
-setopt nonomatch # allow us to do bracket-based commands without ugliness
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
+setopt nonomatch          # allow us to do bracket-based commands without ugliness
+setopt EXTENDED_HISTORY   # add timestamps to history
+setopt LOCAL_OPTIONS      # allow functions to have local options
+setopt LOCAL_TRAPS        # allow functions to have local traps
 setopt PROMPT_SUBST
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
@@ -67,6 +67,12 @@ function sg {
   fi
 }
 
+rbuse() {
+  ruby=$1 && shift;
+  unset GEM_PATH;
+  chruby $ruby && source $(which chgems);
+}
+
 # Prompt
 export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_color%}%% '
 
@@ -76,13 +82,5 @@ alias ls="ls -lh"
 alias rage='bundle exec rake'
 alias gmacs='open . -a emacs'
 alias iphonesim='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'
-
-alias chgem=". chgems"
-
-# Bindings
-bindkey -M viins '^R' history-incremental-pattern-search-backward
-bindkey -M viins '^F' history-incremental-pattern-search-forward
-bindkey -M viins '^P' up-history
-bindkey -M viins '^N' down-history
 
 typeset -U path cdpath fpath
