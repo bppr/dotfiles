@@ -5,5 +5,5 @@
     clojure-mode
     coffee-mode
     ruby-mode
-    find-file-in-repository
-    ))
+    web-mode
+    find-file-in-repository))
