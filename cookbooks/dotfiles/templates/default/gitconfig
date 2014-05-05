@@ -1,0 +1,33 @@
+[user]
+  name  = Brian Pratt
+  email = brian@8thlight.com
+
+[color]
+  ui = auto
+
+[push]
+  default = current
+
+[alias]
+  aa    = add -A .
+  amend = commit --amend
+
+  br    = branch
+  ci    = commit
+  cm    = commit -m
+  cma   = commit -am
+  co    = checkout
+  rh    = reset HEAD
+
+  di    = diff
+  dc    = diff --cached
+  ds    = diff --staged
+
+  st    = status
+
+  fml   = !git aa && git reset --hard
+  pop   = !git stash pop
+  subs  = submodule update --init --recursive
+  lg    = "!. ~/.githelpers && pretty_git_log"
+
+  checkpoint = commit -m "checkpoint"

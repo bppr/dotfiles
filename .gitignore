@@ -1,4 +1,3 @@
-_vim/bundle
-_vim/.netrwhist
-_emacs.d/elpa
-_emacs.d/ido.last
+.gem
+chef-client-running.pid
+chef-stacktrace.out

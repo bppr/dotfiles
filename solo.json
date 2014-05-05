@@ -1,0 +1,10 @@
+{
+    "run_list": [
+      "recipe[dotfiles::zsh]",
+      "recipe[dotfiles::git]",
+      "recipe[dotfiles::vim]",
+      "recipe[dotfiles::emacs]",
+      "recipe[dotfiles::tmux]",
+      "recipe[dotfiles::gem]"
+    ]
+}

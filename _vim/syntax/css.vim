@@ -1,1 +1,0 @@
-/Users/rocketspops/Git/css.vim/syntax/css.vim
