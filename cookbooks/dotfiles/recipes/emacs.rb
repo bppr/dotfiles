@@ -1,4 +1,4 @@
-home_dir = ENV['HOME']
+home_dir  = ENV['HOME']
 emacs_dir = "#{home_dir}/.emacs.d"
 
 directory "create ~/.emacs.d" do
