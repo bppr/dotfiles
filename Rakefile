@@ -18,5 +18,5 @@ task :install => [:chef, :clean]
 
 desc "Run chef"
 task :chef do
-  Kernel.system("chef-solo -c solo.rb -j solo.json")
+  Kernel.system("chef-solo -c config/solo.rb -j config/solo.json")
 end

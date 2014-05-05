@@ -37,6 +37,6 @@ end
 [ "gvimrc", "vimrc" ].each { |file| home_dir_dotfile file }
 
 execute "Compile Command-T" do
-  command "ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future rake make"
+  command "rake make"
   cwd "#{ENV['HOME']}/.vim/bundle/command-t"
 end
