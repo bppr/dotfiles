@@ -17,6 +17,8 @@ Versions listed are my current versions. YMMV.
 * `cd dotfiles`
 * `bundle install`
 * edit `solo.json` and remove any recipes you don't want
+* edit `cookbooks/dotfiles/templates/default/gitconfig` and
+  change your Git `user.name` and `user.email` fields.
 * `rake install`
 
 ### VIM
