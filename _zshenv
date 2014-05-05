@@ -12,6 +12,7 @@ export PATH="${PATH}:/usr/local/share/npm/bin"
 export EDITOR=vim
 export CLICOLOR=1
 export CDPATH=~:~/src/:~/src/work
+export GREP_OPTIONS='--color=auto'
 
 # Options
 setopt nonomatch          # allow us to do bracket-based commands without ugliness
@@ -21,7 +22,6 @@ setopt LOCAL_TRAPS        # allow functions to have local traps
 setopt PROMPT_SUBST
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
-setopt AUTO_CD
 setopt HIST_IGNORE_DUPS
 setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
