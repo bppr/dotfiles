@@ -29,7 +29,10 @@ setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
-  source '/usr/local/share/chruby/chruby.sh'
+  chruby_path='/usr/local/share/chruby/chruby.sh'
+  if [[ -f $chruby_path && -r $chruby_path ]]; then
+    source $chruby_path;
+  fi
 fi
 
 #Completion
