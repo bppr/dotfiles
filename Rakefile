@@ -1,7 +1,9 @@
 desc "README"
 task :readme do
-  puts "edit solo.json, then run 'rake install'"
+  puts "USAGE: edit solo.json, then run 'rake install'"
 end
+
+task :default => [:readme]
 
 desc "clean up chef stuff, locally"
 task :clean do
