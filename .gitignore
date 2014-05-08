@@ -1,3 +1,4 @@
 .gem
 chef-client-running.pid
 chef-stacktrace.out
+.DS_Store

@@ -95,19 +95,14 @@ function! Trim()
   exe "normal zz"
 endfunction
 
-function! MakeLight()
-  exe ":set background=light"
-  exe "hi Normal ctermbg=NONE"
-  exe "hi CursorLine ctermbg=NONE"
-  exe "hi rubyDefine ctermbg=NONE"
-endfunction
+" light terminal commands
+exe ":set background=light"
+exe "hi Normal ctermbg=NONE"
+exe "hi CursorLine ctermbg=NONE"
+exe "hi rubyDefine ctermbg=NONE"
 
-" colorization
-if $TERMBG == 'light'
-  call MakeLight()
-else
-  set background=dark
-endif
+"  # for a dark terminal, uncomment this and comment the light terminal stuff
+"  set background=dark
 
 command! -nargs=0 Trim :call Trim()
 command! -nargs=0 MakeLight :call MakeLight()

@@ -4,6 +4,7 @@
     paredit
     clojure-mode
     coffee-mode
+    powerline
     ruby-mode
     web-mode
     find-file-in-repository))

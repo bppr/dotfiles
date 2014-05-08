@@ -4,7 +4,6 @@
 :benchmark: false
 :sources:
 - http://rubygems.org/
-- http://gems
 gem: --no-ri --no-rdoc
 :update_sources: true
 :bulk_threshold: 1000
