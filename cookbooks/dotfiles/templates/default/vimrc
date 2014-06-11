@@ -40,6 +40,13 @@ colorscheme solarized
 
 hi Search    ctermbg=none ctermfg=none cterm=underline
 hi IncSearch ctermbg=none ctermfg=none cterm=bold,underline
+hi ColorColumn ctermbg=gray
+hi LineNr ctermbg=gray
+
+" comment these lines out for a darker terminal
+hi Normal ctermbg=NONE
+hi CursorLine ctermbg=NONE
+hi rubyDefine ctermbg=NONE
 
 " plugin options
 let NERDTreeMinimalUI           = 1
@@ -94,15 +101,6 @@ function! Trim()
   exe "normal `z"
   exe "normal zz"
 endfunction
-
-" light terminal commands
-exe ":set background=light"
-exe "hi Normal ctermbg=NONE"
-exe "hi CursorLine ctermbg=NONE"
-exe "hi rubyDefine ctermbg=NONE"
-
-"  # for a dark terminal, uncomment this and comment the light terminal stuff
-"  set background=dark
 
 command! -nargs=0 Trim :call Trim()
 command! -nargs=0 MakeLight :call MakeLight()
