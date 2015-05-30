@@ -1,52 +1,20 @@
-# Congratulations, You Found My Dotfiles Repo!
-Let me save myself some time in the future.
+# Found my Dotfiles!
 
-## Dependencies
-Versions listed are my current versions. YMMV.
-* zsh (~5.0.5)
-* tmux (~1.9)
-* emacs (~24.3.1)
-* vim (~7.4, compiled with Ruby support: try `vim-nox` debian recipe, or `vim` brew recipe)
-* git (~1.9)
-* [chruby](https://github.com/postmodern/chruby) (~0.3.8)
-* [chgems](https://github.com/postmodern/chgems) (~0.3.2)
-* vcprompt ([more](#vcprompt))
+`bin/install` to symlink dotfiles. will not symlink over existing stuff.
 
-## Installation
-* clone the repo: `git clone git://github.com/pratt121/dotfiles.git`
-* `cd dotfiles`
-* `bundle install`
-* edit `solo.json` and remove any recipes you don't want
-* edit `cookbooks/dotfiles/templates/default/gitconfig` and
-  change your Git `user.name` and `user.email` fields.
-* `rake install`
+`bin/fonts-install` for powerline fonts
 
-### VIM
+`bin/vim-bundle` for vim bundleage
 
-#### Bindings In Normal Mode
-* Leader: comma `,` or backslash `\`
-* `g/`  : git grep ( directory search shortcut )
-* `g\*` : git grep current word
-* `gn`  : next in cabinet
-* `gp`  : previous in cabinet
-* `gq`  : close cabinet
-* `gc`  : Comment line
+`bin/brew-install` to install brew-cask and basic list of recipes and casks
 
-Leader Stuff
+If you want to change what gets installed, or add other stuff, knock yourself 
+out and edit the installer files.
 
-* Leader + `cw` : Trim trailing whitespace
-* Leader + `t`  : Command-T file browser
-* Leader + `fr` : Refresh Command-T
-* Leader + `fb` : Command-T buffer list
-* Leader + `nt` : toggle NERDTree
+Depends on XCode or command line tools being installed. If you don't have either:
 
-#### Bindings In Insert Mode
-* Ctrl + `L`    : insert hash-rocket (`=>`)
-* Ctrl + `K`    : insert method-missile (`->`)
+    xcode-select --install
 
-## VCPrompt
-Copy it from [here](https://raw.github.com/djl/vcprompt/v1.0.1/bin/vcprompt) to a directory on your PATH. Make sure it's executable.
+to get the command-line tools, then go ahead.
 
-Example:
-
-    curl https://raw.github.com/djl/vcprompt/v1.0.1/bin/vcprompt > /usr/local/bin/vcprompt && sudo chmod +x /usr/local/bin/vcprompt
+TODO: Set a bunch of default OSX preferences in a script.

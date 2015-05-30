@@ -1,0 +1,6 @@
+#! /usr/bin/env sh
+
+git clone https://github.com/powerline/fonts /tmp/pfonts
+(cd /tmp/pfonts && ./install.sh)
+
+rm -rf /tmp/pfonts

@@ -6,23 +6,22 @@ filetype plugin indent on
 
 compiler ruby
 
-set incsearch
-set hlsearch
-set number
-set showmatch
-set hidden
-set backspace=indent,eol,start
-set textwidth=0 nosmartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-set ruler
-set wrap
-set scrolloff=5
-set nofoldenable
-set nocompatible
-set laststatus=2
-set ignorecase
-set smartcase
-set cursorline
-set colorcolumn=80
+set incsearch "
+set hlsearch  "
+set number    "
+"set showmatch
+set hidden    "
+set backspace=indent,eol,start "
+set textwidth=0 smartindent tabstop=2 shiftwidth=2 softtabstop=2 expandtab "
+set ruler "
+set scrolloff=5 "
+set nofoldenable "
+set nocompatible "
+set laststatus=2 "
+set ignorecase "
+set smartcase "
+set cursorline "
+set colorcolumn=80 "
 set wildignore+=target
 
 set nobackup
@@ -36,7 +35,9 @@ set list
 set listchars=tab:\ \ ,trail:·
 
 let g:solarized_termcolors=256
+set background=light
 colorscheme solarized
+hi Normal ctermbg=none
 
 hi Search    ctermbg=none ctermfg=none cterm=underline
 hi IncSearch ctermbg=none ctermfg=none cterm=bold,underline
@@ -105,9 +106,6 @@ endfunction
 command! -nargs=0 Trim :call Trim()
 command! -nargs=0 MakeLight :call MakeLight()
 nnoremap <silent> <Leader>cw :Trim<CR>
-
-" solarized + coffee == annoying parens, fix that
-autocmd BufReadPost *.coffee hi coffeeParen ctermfg=none
 
 augroup markdown
   au!

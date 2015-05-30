@@ -1,0 +1,31 @@
+#! /usr/bin/env ruby
+# vi: set ft=ruby :
+
+require 'fileutils'
+
+module VimBundleInstall
+  REPOS = [
+   "troydm/easytree.vim",
+   "kien/ctrlp.vim",
+   "tpope/vim-fugitive",
+   "tomtom/tcomment_vim",
+   "jonathanfilip/vim-lucius",
+   "bling/vim-airline"
+  ]
+
+  def self.install
+    REPOS.each { |repo| self.clone(repo) }
+  end
+
+  def self.clone(repo)
+    FileUtils.cd(File.join(FileUtils.pwd, "src", "nvim", "bundle")) do |dir|
+      system("git clone https://github.com/#{repo} 2> /dev/null && \
+              echo 'cloned #{repo}' || echo 'skipped #{repo}'")
+
+      cloned_git_dir = File.join(dir, repo.split("/")[1], ".git")
+      FileUtils.rm_r(cloned_git_dir) if File.exist?(cloned_git_dir)
+    end
+  end
+end
+
+VimBundleInstall.install

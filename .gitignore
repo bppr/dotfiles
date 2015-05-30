@@ -1,4 +1,2 @@
-.gem
-chef-client-running.pid
-chef-stacktrace.out
-.DS_Store
+src/emacs.d/elpa/
+src/nvim/bundle/

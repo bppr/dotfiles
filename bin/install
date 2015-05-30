@@ -1,0 +1,45 @@
+#! /usr/bin/env ruby
+# vi: set ft=ruby :
+
+require 'fileutils'
+
+class DotfileInstall
+  TO_INSTALL = [
+    "emacs.d",
+    "gemrc",
+    "gitconfig",
+    "githelpers",
+    "mjolnir",
+    "nvimrc",
+    "tmux.conf",
+    "nvim",
+    "zshenv"
+  ]
+
+  attr_accessor :options
+
+  def initialize(options)
+    self.options = options
+  end
+
+  def run
+    TO_INSTALL.each { |file| install(file) }
+  end
+
+  def install(filename)
+    source_file = File.join(FileUtils.pwd, "src", filename)
+    destination_file = File.join(ENV['HOME'], ".#{filename}")
+
+    FileUtils.rm(destination_file) if options[:clean]
+
+    if !File.exists?(destination_file)
+      FileUtils.ln_s(source_file, destination_file)
+    end
+  end
+end
+
+options = {
+  clean: ARGV.include?("--clean")
+}
+
+DotfileInstall.new(options).run

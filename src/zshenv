@@ -6,7 +6,6 @@ bindkey -e
 
 #Path
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="${PATH}:/usr/local/share/npm/bin"
 
 # Env Vars
 export EDITOR=vim
@@ -14,24 +13,21 @@ export CLICOLOR=1
 export CDPATH=~:~/src/:~/src/work
 export GREP_OPTIONS='--color=auto'
 
-# YOU MAY NEED TO ACTIVATE THE FOLLOWING LINE DEPENDING ON YOUR CLANG VERSION
-# EFFECTS OS X 10.9.2 / XCODE 5.1.1
-#export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
-
 # Options
 setopt nonomatch          # allow us to do bracket-based commands without ugliness
 setopt EXTENDED_HISTORY   # add timestamps to history
 setopt LOCAL_OPTIONS      # allow functions to have local options
 setopt LOCAL_TRAPS        # allow functions to have local traps
-setopt PROMPT_SUBST
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
-setopt HIST_IGNORE_DUPS
-setopt APPEND_HISTORY # adds history
+setopt PROMPT_SUBST       # allow for var / fn expansion in prompt substitution
+setopt COMPLETE_IN_WORD   # allow for autocomplete within words
+setopt IGNORE_EOF         # do not exist on end-of-file
+setopt HIST_IGNORE_DUPS   # remove dups from history
+setopt APPEND_HISTORY     # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
+setopt HIST_REDUCE_BLANKS # removes blank commands
 
+# chruby
 if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
   chruby_path='/usr/local/share/chruby/chruby.sh'
   if [[ -f $chruby_path && -r $chruby_path ]]; then
@@ -39,45 +35,16 @@ if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
   fi
 fi
 
-#Completion
+# Completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive completion
-zstyle ':completion:*:default' menu 'select=0' # menu-style
+zstyle ':completion:*:default' menu 'select=0'      # menu-style
 
 # Functions
 git_prompt_info() {
   ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
-  mods=$(vcprompt -f %m%u%a) || return
+  mods=$(vcprompt -f %m%u%a)
   echo "%{$reset_color%}(%{$fg[red]%}${ref#refs/heads/}%{$fg[yellow]%}${mods}%{$reset_color%})"
-}
-
-function ss {
-  if [ -e script/rails ]; then
-    script/rails server $@
-  else
-    script/server $@
-  fi
-}
-
-function sc {
-  if [ -e script/rails ]; then
-    script/rails console $@
-  else
-    script/console $@
-  fi
-}
-
-function sg {
-  if [ -e script/rails ]; then
-    script/rails generate $@
-  else
-    script/generate $@
-  fi
-}
-
-rbuse() {
-  ruby=$1 && shift;
-  chruby $ruby && chgems;
 }
 
 # Prompt
@@ -86,8 +53,5 @@ export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_col
 # Aliases
 alias bx="bundle exec"
 alias ls="ls -lh"
-alias rage='bundle exec rake'
-alias gmacs='open . -a emacs'
-alias iphonesim='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'
 
 typeset -U path cdpath fpath
