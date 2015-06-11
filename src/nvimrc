@@ -65,10 +65,8 @@ nnoremap <silent> <Leader>W :TrimWhitespace<CR>
 nnoremap <silent> <Leader>N :EasyTree<CR>
 
 " themes
-colorscheme lucius
-hi Normal ctermbg=none
-hi ColorColumn ctermbg=gray
 let g:airline_powerline_fonts = 1
+colorscheme bp-light
 
 "" plugins and plugin options
 " " " " " "

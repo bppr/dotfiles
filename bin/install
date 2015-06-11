@@ -27,7 +27,7 @@ class DotfileInstall
   end
 
   def install(filename)
-    source_file = File.join(FileUtils.pwd, "src", filename)
+    source_file      = File.join(FileUtils.pwd, "src", filename)
     destination_file = File.join(ENV['HOME'], ".#{filename}")
 
     FileUtils.rm(destination_file) if options[:clean]
