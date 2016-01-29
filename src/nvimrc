@@ -32,6 +32,8 @@ set list listchars=tab:»\ ,trail:·
 set textwidth=0 tabstop=2 shiftwidth=2 softtabstop=2
 set smartindent expandtab
 
+autocmd Filetype swift setlocal noexpandtab " use tabs for Swift files
+
 " insert key bindings: Ctrl-L for =>, Ctrl-K for ->
 imap <C-L> <SPACE>=><SPACE>
 imap <C-K> ->

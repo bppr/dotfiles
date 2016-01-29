@@ -52,6 +52,6 @@ export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_col
 
 # Aliases
 alias bx="bundle exec"
-alias ls="ls -lh"
+alias ls="ls -lh --color=auto"
 
 typeset -U path cdpath fpath

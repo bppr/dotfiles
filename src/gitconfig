@@ -31,3 +31,6 @@
   lg    = "!. ~/.githelpers && pretty_git_log"
 
   checkpoint = commit -m "checkpoint"
+  do-rebase = "!f() { git co $1 && git pull && git co - && git rebase $1; }; f"
+[core]
+	pager = less -x1,3
