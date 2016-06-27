@@ -10,6 +10,7 @@ module VimBundleInstall
    "tpope/vim-fugitive",
    "tomtom/tcomment_vim",
    "jonathanfilip/vim-lucius",
+   "bppr/swift.vim",
    "bling/vim-airline"
   ]
 

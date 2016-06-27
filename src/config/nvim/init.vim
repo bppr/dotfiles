@@ -10,6 +10,7 @@ set incsearch       " enable incremental search
 set hlsearch        " enable search highlighting
 set ignorecase      " case-insensitive searches
 set smartcase       " use smart-case for searches
+set nowrap          " line wrapping sucks and is unreadable bs
 
 set hidden          " allow 'background'ing of unwritten buffers
 set backspace=2     " allow 'backspace' to cross line breaks, indent, etc
@@ -66,6 +67,8 @@ command -nargs=0 TrimWhitespace :call TrimWhitespace()
 nnoremap <silent> <Leader>W :TrimWhitespace<CR>
 nnoremap <silent> <Leader>N :EasyTree<CR>
 
+hi Normal ctermbg=none
+
 " themes
 let g:airline_powerline_fonts = 1
 colorscheme bp-light
@@ -86,7 +89,5 @@ let g:ctrlp_prompt_mappings = {
       \ 'PrtHistory(1)':        ['<c-k>']}
 
 " use git ls-files, if present, for speed
-let g:ctrlp_user_command = [
-      \ '.git',
-      \ 'cd %s && git ls-files . -co --exclude-standard',
-      \ 'find %s -type f']
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']

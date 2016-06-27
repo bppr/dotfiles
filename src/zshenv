@@ -8,7 +8,7 @@ bindkey -e
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Env Vars
-export EDITOR=vim
+export EDITOR=nvim
 export CLICOLOR=1
 export CDPATH=~:~/src/:~/src/work
 export GREP_OPTIONS='--color=auto'
@@ -27,13 +27,8 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS # removes blank commands
 
-# chruby
-if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
-  chruby_path='/usr/local/share/chruby/chruby.sh'
-  if [[ -f $chruby_path && -r $chruby_path ]]; then
-    source $chruby_path;
-  fi
-fi
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
 
 # Completion
 zstyle ':completion::complete:*' use-cache 1
@@ -47,11 +42,25 @@ git_prompt_info() {
   echo "%{$reset_color%}(%{$fg[red]%}${ref#refs/heads/}%{$fg[yellow]%}${mods}%{$reset_color%})"
 }
 
+imprivata_path_append() {
+  export PATH="${PATH}:/Users/pratt/src/work/imprivata/ng/dev-tools"
+}
+
 # Prompt
 export PROMPT='%m%{$reset_color%}:%{$fg[cyan]%}%c$(git_prompt_info) %{$reset_color%}%% '
 
 # Aliases
 alias bx="bundle exec"
-alias ls="ls -lh --color=auto"
+alias ls="ls -lh"
+
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+
 
 typeset -U path cdpath fpath
+export ANDROID_HOME=/usr/local/opt/android-sdk
