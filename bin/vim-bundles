@@ -18,7 +18,10 @@ module VimBundleInstall
   end
 
   def self.clone(repo)
-    FileUtils.cd(File.join(FileUtils.pwd, "src", "nvim", "bundle")) do |dir|
+    path = File.join(FileUtils.pwd, "src", "config", "nvim", "bundle")
+
+    FileUtils.mkdir_p(path)
+    FileUtils.cd(path) do |dir|
       system("git clone https://github.com/#{repo} 2> /dev/null && \
               echo 'cloned #{repo}' || echo 'skipped #{repo}'")
 

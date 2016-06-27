@@ -10,9 +10,8 @@ class DotfileInstall
     "gitconfig",
     "githelpers",
     "mjolnir",
-    "nvimrc",
     "tmux.conf",
-    "nvim",
+    "config", # nvim
     "zshenv"
   ]
 

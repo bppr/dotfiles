@@ -1,11 +1,12 @@
 #! /usr/bin/env sh
 
-brew install caskroom/cask/brew-cask
-
-brew install git tmux zsh emacs 
-brew install neovim/neovim/neovim --HEAD
-
-brew cask install mjolnir slack flux firefox google-chrome iterm2 vagrant 1password
+if command -v brew >/dev/null; then
+  brew install caskroom/cask/brew-cask
+  brew install git tmux zsh emacs
+  brew install neovim/neovim/neovim --HEAD
+  brew cask install mjolnir slack flux firefox \
+    google-chrome iterm2 vagrant 1password
+fi
 
 curl https://raw.githubusercontent.com/djl/vcprompt/v1.0.1/bin/vcprompt > \
   /usr/local/bin/vcprompt
